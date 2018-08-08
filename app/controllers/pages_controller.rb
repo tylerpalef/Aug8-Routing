@@ -16,6 +16,15 @@ class PagesController < ApplicationController
     redirect_to "/welcome"
   end
 
+  def secrets
+  if params[:magic_word] == 'tyler'
+    render :secrets
+  else
+    flash[:alert] = "Sorry, you're not authorized to see that page!"
+    redirect_to welcome_path
+  end
+end
+
   def kitten
   end
 
